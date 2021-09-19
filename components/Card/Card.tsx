@@ -12,6 +12,7 @@ const Card: FC<Props> = ({ title, id, img, subtext }) => {
     <div>
       <h1>{title}</h1>
       <p>{subtext}</p>
+      <img src={img} alt="" />
     </div>
   );
 };
