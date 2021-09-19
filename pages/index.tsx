@@ -23,9 +23,11 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       {movies.map((movie) => {
-        <div key={movie.id}>
-          <p>{movie.title}</p>
-        </div>;
+        return (
+          <div key={movie.id}>
+            <p>{movie.title}</p>
+          </div>
+        );
       })}
       {/* <pre>{JSON.stringify(movies, null, 2)}</pre> */}
     </div>
