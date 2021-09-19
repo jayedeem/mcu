@@ -8,7 +8,7 @@ import styles from "../styles/Home.module.css";
 import { MovieDetail } from "../utils/MovieDetails";
 
 const Home: NextPage = () => {
-  const [movies, setMovies] = useState<MovieDetail[]>([]);
+  const [movies, setMovies] = useState<MovieDetail[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const fetchAPI = useCallback(async () => {
@@ -23,11 +23,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      {movies.map((movie) => {
-        <div key={movie.id}>
-          <p>{movie.title}</p>
-        </div>
-      })}
+      <pre>{JSON.stringify(movies, null, 2)}</pre>
     </div>
   );
 };
