@@ -28,7 +28,7 @@ const Home: NextPage = () => {
           <p>{movie.title}</p>
         </div>
       })}
-      <pre>{JSON.stringify(movies, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(movies, null, 2)}</pre> */}
     </div>
   );
 };
