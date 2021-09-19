@@ -21,7 +21,7 @@ module.exports = {
   rules: {},
   settings: {
     react: {
-      version: "detect",
+      version: "latest",
     },
   },
 };

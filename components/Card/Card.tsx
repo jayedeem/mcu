@@ -11,6 +11,7 @@ const Card: FC<Props> = ({ title, id, img, subtext }) => {
     return (
         <div>
             <h1>{title}</h1>
+            <p>{subtext}</p>
         </div>
     )
 }
