@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { NextPage } from "next";
 import React, { useCallback, useEffect, useState } from "react";
+import Card from "../components/Card/Card";
 import styles from "../styles/Home.module.css";
 import { MovieDetail } from "../utils/MovieDetails";
 
@@ -24,9 +25,12 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       {movies.map((movie) => {
         return (
-          <div key={movie.id}>
-            <p>{movie.title}</p>
-          </div>
+          <Card
+            key={movie.id}
+            title={movie.title}
+            subtext={movie.overview}
+            img={movie.cover_url}
+          />
         );
       })}
       {/* <pre>{JSON.stringify(movies, null, 2)}</pre> */}
