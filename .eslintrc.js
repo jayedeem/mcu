@@ -19,7 +19,9 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "@typescript-eslint"],
-  rules: {},
+  rules: {
+    "no-console": 2
+  },
   settings: {
     react: {
       version: "latest",

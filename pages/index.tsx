@@ -7,7 +7,6 @@ import React, { useCallback, useEffect, useState } from "react";
 const Home: NextPage = () => {
   const [movies, setMovies] = useState<MovieDetail[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
   const fetchAPI = useCallback(async () => {
     const { data } = await axios.get(
       "https://mcuapi.herokuapp.com/api/v1/movies"
@@ -15,10 +14,9 @@ const Home: NextPage = () => {
     setMovies(data.data);
     setIsLoading(false);
   }, []);
-  console.log(movies);
   useEffect(() => {
     fetchAPI();
-  }, []);
+  }, [fetchAPI]);
 
   return (
     <div>
