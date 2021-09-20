@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      {movies.map((movie) => {
+      {!isLoading ? movies.map((movie) => {
         return (
           <Card
             key={movie.id}
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
             img={movie.cover_url}
           />
         );
-      })}
+      }) : "LOADING DATA"}
     </div>
   );
 };

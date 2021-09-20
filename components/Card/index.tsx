@@ -8,7 +8,7 @@ interface Props {
   subtext?: string;
 }
 
-export const Card: FC<Props> = ({ title, id, img, subtext }) => {
+export const Card: FC<Props> = ({ title, id, img, subtext }): JSX.Element => {
   return (
     <div>
       <h1 className={styles.heading}>{title}</h1>
