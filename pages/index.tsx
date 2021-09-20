@@ -22,16 +22,18 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      {!isLoading ? movies.map((movie) => {
-        return (
-          <Card
-            key={movie.id}
-            title={movie.title}
-            subtext={movie.overview}
-            img={movie.cover_url}
-          />
-        );
-      }) : "LOADING DATA"}
+      {!isLoading
+        ? movies.map((movie) => {
+            return (
+              <Card
+                key={movie.id}
+                title={movie.title}
+                subtext={movie.overview}
+                img={movie.cover_url}
+              />
+            );
+          })
+        : "LOADING DATA"}
     </div>
   );
 };
