@@ -13,7 +13,7 @@ export const Card: FC<Props> = ({ title, id, img, subtext }): JSX.Element => {
     <div>
       <h1 className={styles.heading}>{title}</h1>
       <p>{subtext}</p>
-      <img src={img} alt="" />
+      <img src={img} alt={subtext} />
     </div>
   );
 };
