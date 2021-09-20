@@ -11,7 +11,7 @@ interface Props {
 export const Card: FC<Props> = ({ title, img, subtext }): JSX.Element => {
   return (
     <div>
-      <h1 className={styles.heading}>{title}</h1>
+      <h1 className={styles.heading}>{title} </h1>
       <p>{subtext}</p>
       <img src={img} alt={subtext} />
     </div>
