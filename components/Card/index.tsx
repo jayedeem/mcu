@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import styles from '@/styles/card.module.scss';
+import styles from "@/styles/card.module.scss";
 
 interface Props {
   title?: string;
@@ -17,5 +17,3 @@ export const Card: FC<Props> = ({ title, id, img, subtext }) => {
     </div>
   );
 };
-
-
