@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import styles from "@/styles/card.module.scss";
+import React, { FC } from 'react';
+import styles from '@/styles/card.module.scss';
 
 interface Props {
   title?: string;

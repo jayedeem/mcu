@@ -1,16 +1,14 @@
-import { Card } from "@/components/Card";
-import { MovieDetail } from "@/utils/MovieDetails";
-import axios from "axios";
-import type { NextPage } from "next";
-import React, { useCallback, useEffect, useState } from "react";
+import { Card } from '@/components/Card';
+import { MovieDetail } from '@/utils/MovieDetails';
+import axios from 'axios';
+import type { NextPage } from 'next';
+import React, { useCallback, useEffect, useState } from 'react';
 
 const Home: NextPage = () => {
   const [movies, setMovies] = useState<MovieDetail[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const fetchAPI = useCallback(async () => {
-    const { data } = await axios.get(
-      "https://mcuapi.herokuapp.com/api/v1/movies"
-    );
+    const { data } = await axios.get('https://mcuapi.herokuapp.com/api/v1/movies');
     setMovies(data.data);
     setIsLoading(false);
   }, []);
@@ -31,7 +29,7 @@ const Home: NextPage = () => {
               />
             );
           })
-        : "LOADING DATA"}
+        : 'LOADING DATA'}
     </div>
   );
 };
