@@ -1,5 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+yarn run format || (
+        echo 'running formatter'
+)
 
 echo '🏗️👷 Styling, testing and building your project before committing'
 
