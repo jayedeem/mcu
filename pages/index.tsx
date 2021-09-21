@@ -14,16 +14,16 @@ const Home: NextPage<Props> = ({ data }) => {
     <div>
       {movies
         ? movies.map((movie) => {
-          return (
-            <Card
-              key={movie.id}
-              title={movie.title}
-              subtext={movie.overview}
-              img={movie.cover_url!}
-              id={movie.id}
-            />
-          );
-        })
+            return (
+              <Card
+                key={movie.id}
+                title={movie.title}
+                subtext={movie.overview}
+                img={movie.cover_url!}
+                id={movie.id}
+              />
+            );
+          })
         : 'LOADING'}
     </div>
   );
