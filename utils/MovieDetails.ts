@@ -1,7 +1,7 @@
 export interface MovieDetail {
   box_office?: string;
   chronology?: number;
-  cover_url?: string;
+  cover_url?: string | undefined;
   directed_by?: string;
   duration?: number;
   id: number;
