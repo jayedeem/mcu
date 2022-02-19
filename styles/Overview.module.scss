@@ -1,0 +1,19 @@
+//overview component within card
+$marvelRed: #f0131e;
+
+.container {
+  margin: 0 auto;
+  padding: 1.875rem;
+  @media only screen and (min-width: 600px) {
+    padding: 2rem;
+  }
+}
+.overview {
+  &__more {
+    color: $marvelRed;
+    font-weight: 600;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
