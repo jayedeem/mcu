@@ -1,29 +1,25 @@
-import React, { FC, useState } from 'react';
-import styles from '@/styles/card.module.scss';
-import Image from 'next/image';
-import image from 'next/image';
+import React, { FC } from "react";
+import styles from "@/styles/Card.module.scss";
+import { Overview } from "@/components/Card/Overview";
+import Image from "next/image";
 
 interface Props {
-  title: string;
-  id: number;
-  img: string;
-  subtext: string;
+  title?: string;
+  id?: number;
+  img?: string;
+  overview?: string;
 }
 
-export const Card: FC<Props> = ({ title, img, subtext, id }) => {
-  const [images, setImages] = useState(img);
-
+//control how many words you want to show before cutting off text and showing '... more' button
+export const Card: FC<Props> = ({ title, img = "", overview }): JSX.Element => {
   return (
     <div className={styles.card}>
-      <div className={styles.arm}></div>
-      <div className={styles.card__container}>
-        <h1 className={styles.heading}>{title}</h1>
-        <h3>Number {id}</h3>
-        {/* Need to fix for null values */}
-        {/* <Image src={images} layout="fill" /> : <p>no image</p>} */}
-        <img src={images} alt={subtext} />
-        <p>{subtext}</p>
+      <h1 className={styles.card__heading}>{title}</h1>
+      <div className={styles.card__img}>
+        <Image src={img} alt={`${title} cover image`} layout="fill" />
       </div>
+
+      <Overview defaultWordLimit={22} overview={overview} />
     </div>
   );
 };
