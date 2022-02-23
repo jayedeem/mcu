@@ -10,11 +10,16 @@ const Home: NextPage = () => {
   const [movies, setMovies] = useState<MovieDetail[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const fetchAPI = useCallback(async () => {
-    const { data } = await axios.get<IGet>(
-      "https://mcuapi.herokuapp.com/api/v1/movies"
-    );
-    setMovies(data.data);
-    setIsLoading(false);
+    try {
+      const { data } = await axios.get<IGet>(
+        "https://mcuapi.herokuapp.com/api/v1/movies"
+      );
+
+      setMovies(data.data);
+      setIsLoading(false);
+    } catch (e) {
+      // console.log(e);
+    }
   }, []);
   useEffect(() => {
     fetchAPI();
