@@ -1,7 +1,7 @@
-import styles from './navbar.module.scss'
+import { NextComponentType } from 'next';
+import styles from './navbar.module.scss';
 
-
-export const NavBar = () => {
+export const NavBar = (): JSX.Element => {
     return (
         <div className={styles.navbar__container}>
             <div className={styles.navbar__container_wrapper}>
@@ -19,5 +19,5 @@ export const NavBar = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
