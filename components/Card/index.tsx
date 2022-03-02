@@ -15,10 +15,7 @@ export const Card: FC<Props> = ({ title, img = "", overview }): JSX.Element => {
   return (
     <div className={styles.card}>
       <h1 className={styles.card__heading}>{title}</h1>
-      <div className={styles.card__img}>
-        <Image src={img} alt={`${title} cover image`} layout="fill" />
-      </div>
-
+      <img src={img} alt={`${title} cover image`} className={styles.card__img} />
       <Overview defaultWordLimit={22} overview={overview} />
     </div>
   );

@@ -3,9 +3,13 @@ import { MovieDetail } from "@/utils/MovieDetails";
 import axios from "axios";
 import type { NextPage } from "next";
 import React, { useCallback, useEffect, useState } from "react";
+import styles from "@/styles/main.module.scss"
+import { NavBar } from "@/components/Navbar";
 interface IGet {
   data: MovieDetail[];
 }
+
+
 const Home: NextPage = () => {
   const [movies, setMovies] = useState<MovieDetail[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -27,9 +31,13 @@ const Home: NextPage = () => {
   }, [fetchAPI]);
 
   return (
-    <div>
-      {!isLoading
-        ? movies.map((movie) => {
+    <>
+      <NavBar />
+
+      <div className={styles.main_container}>
+
+        {!isLoading
+          ? movies.map((movie) => {
             return movie.title && movie.overview && movie.cover_url ? (
               <Card
                 key={movie.id}
@@ -41,8 +49,9 @@ const Home: NextPage = () => {
               ""
             );
           })
-        : "LOADING DATA"}
-    </div>
+          : "LOADING DATA"}
+      </div>
+    </>
   );
 };
 
