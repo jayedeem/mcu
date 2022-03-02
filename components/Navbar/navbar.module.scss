@@ -1,0 +1,42 @@
+.navbar__container {
+  background-color: beige;
+  //   width: 1540px;
+  //   padding: unset;
+  &_wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    max-width: 1440px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+  &_logo {
+    font-size: 20px;
+    align-items: center;
+    text-transform: uppercase;
+  }
+
+  &_menu {
+    display: flex;
+    flex-direction: row;
+
+    &_items {
+      width: 300px;
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        li {
+          list-style: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
