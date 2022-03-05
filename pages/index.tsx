@@ -30,11 +30,12 @@ const Home: NextPage = () => {
   }, [fetchAPI]);
 
   return (
-    <div className={styles.main_container}>
+    <>
       <NavBar />
       <MobileNav />
-      {!isLoading
-        ? movies.map((movie) => {
+      <div className={styles.main_container}>
+        {!isLoading
+          ? movies.map((movie) => {
             return movie?.title && movie.overview && movie?.cover_url ? (
               <Card
                 key={movie?.id}
@@ -46,8 +47,9 @@ const Home: NextPage = () => {
               ''
             );
           })
-        : 'LOADING DATA'}
-    </div>
+          : 'LOADING DATA'}
+      </div>
+    </>
   );
 };
 
