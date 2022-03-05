@@ -14,15 +14,15 @@ interface IGet {
 const Home: NextPage = () => {
   const [movies, setMovies] = useState<MovieDetail[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  const [error, setError] = useState<string | null>();
   const fetchAPI = useCallback(async () => {
     try {
       const { data } = await axios.get<IGet>('https://mcuapi.herokuapp.com/api/v1/movies');
 
       setMovies(data.data);
       setIsLoading(false);
-    } catch (e) {
-      throw new Error("Something Went Wrong")
+    } catch (e: any) {
+      setError(e);
     }
   }, []);
   useEffect(() => {
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
       <NavBar />
       <MobileNav />
       <div className={styles.main_container}>
-        {!isLoading
+        {!isLoading && !error
           ? movies.map((movie) => {
             return movie?.title && movie.overview && movie?.cover_url ? (
               <Card
