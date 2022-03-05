@@ -2,6 +2,12 @@
   background-color: beige;
   //   width: 1540px;
   //   padding: unset;
+  display: none;
+
+  @media screen and(min-width: 1040px) {
+    display: block;
+  }
+
   &_wrapper {
     padding-left: 30px;
     padding-right: 30px;
