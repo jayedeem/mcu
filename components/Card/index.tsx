@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import styles from '@/styles/Card.module.scss';
+import styles from './Card.module.scss';
 import { Overview } from '@/components/Card/Overview';
-import Image from 'next/image';
 
 interface Props {
   title?: string;

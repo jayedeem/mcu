@@ -29,7 +29,7 @@
     flex-direction: row;
 
     &_items {
-      width: 300px;
+      width: 350px;
       ul {
         display: flex;
         flex-direction: row;
@@ -39,6 +39,8 @@
         li {
           list-style: none;
           cursor: pointer;
+          text-transform: uppercase;
+          font-weight: bold;
         }
       }
     }

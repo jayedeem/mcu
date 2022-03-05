@@ -1,24 +1,7 @@
-import { FC, useState, MouseEventHandler, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import s from './mobilenav.module.scss';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
-
-interface MobilenavOverlayProps {
-    isToggle: boolean;
-}
-
-
-const MobilenavOverlay: FC<MobilenavOverlayProps> = ({ isToggle }) => {
-    return (
-        <div className={isToggle ? s.mobileNav__overlay : s.mobileNav__overlayHidden}>
-            <ul className={s.mobileNav__overlay_list}>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </div>
-    );
-};
+import { MobileNavControls } from './MobileNavControls';
+import { MobilenavOverlay } from './MobileNavOverlay';
 
 export const MobileNav: FC = () => {
     const [isToggle, setIsToggle] = useState<boolean>(false);
@@ -38,13 +21,8 @@ export const MobileNav: FC = () => {
 
     return (
         <div className={s.mobileNav}>
-            <div className={s.mobileNav__hamburger} onClick={() => toggleOverlay()}>
-                {isToggle ? <AiOutlineCloseCircle /> : <GiHamburgerMenu />}
-            </div>
-
-            <>
-                <MobilenavOverlay isToggle={isToggle} />
-            </>
+            <MobileNavControls toggleOverlay={toggleOverlay} isToggle={isToggle} />
+            <MobilenavOverlay isToggle={isToggle} />
         </div>
     );
 };
