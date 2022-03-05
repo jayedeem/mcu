@@ -8,21 +8,19 @@
   display: block;
   width: 100%;
   position: relative;
-  z-index: 9999;
+  z-index: 10;
   @include hide();
   background-color: black;
   width: 100%;
-  height: 60px;
+  height: 100px;
   &__hamburger {
-    // height: 50px;
     padding: {
-      top: 40px;
-      bottom: 30px;
+      top: 25px;
     }
     position: absolute;
     top: 0;
     right: 10px;
-
+    z-index: 10;
     svg {
       fill: antiquewhite;
       height: 50px;
@@ -35,7 +33,12 @@
     height: 100vh;
     width: 100vw;
     display: block;
-    ul {
+    position: relative;
+    &_list {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       li {
         list-style: none;
         color: yellow;
