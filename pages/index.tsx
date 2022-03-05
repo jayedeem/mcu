@@ -14,7 +14,7 @@ interface IGet {
 const Home: NextPage = () => {
   const [movies, setMovies] = useState<MovieDetail[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>();
+
   const fetchAPI = useCallback(async () => {
     try {
       const { data } = await axios.get<IGet>('https://mcuapi.herokuapp.com/api/v1/movies');
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       setMovies(data.data);
       setIsLoading(false);
     } catch (e) {
-      setError('error');
+      throw new Error("Something Went Wrong")
     }
   }, []);
   useEffect(() => {
