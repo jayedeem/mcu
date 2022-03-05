@@ -30,27 +30,26 @@ const Home: NextPage = () => {
   }, [fetchAPI]);
 
   return (
-    <>
+
+    <div className={styles.main_container}>
       <NavBar />
       <MobileNav />
+      {!isLoading
+        ? movies.map((movie) => {
+          return movie?.title && movie.overview && movie?.cover_url ? (
+            <Card
+              key={movie?.id}
+              title={movie?.title}
+              overview={movie?.overview}
+              img={movie?.cover_url ? movie?.cover_url : ''}
+            />
+          ) : (
+            ''
+          );
+        })
+        : 'LOADING DATA'}
+    </div>
 
-      <div className={styles.main_container}>
-        {!isLoading
-          ? movies.map((movie) => {
-              return movie?.title && movie.overview && movie?.cover_url ? (
-                <Card
-                  key={movie?.id}
-                  title={movie?.title}
-                  overview={movie?.overview}
-                  img={movie?.cover_url ? movie?.cover_url : ''}
-                />
-              ) : (
-                ''
-              );
-            })
-          : 'LOADING DATA'}
-      </div>
-    </>
   );
 };
 
