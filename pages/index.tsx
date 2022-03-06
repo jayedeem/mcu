@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   }, []);
 
   const [phase, setPhase] = useState<moviePhaseTypes>(moviePhaseValues.showAll);
-  function filterFun(movie: MovieDetail): boolean {
+  function isCorrectMoviePhase(movie: MovieDetail): boolean {
     if (phase === moviePhaseValues.showAll) return true;
     return movie?.phase === phase;
   }
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
       <MobileNav onClick={handleClick} />
       <div className={styles.main_container}>
         {!isLoading && !error
-          ? movies.filter(filterFun).map((movie) => {
+          ? movies.filter(isCorrectMoviePhase).map((movie) => {
             return movie?.title && movie.overview && movie?.cover_url ? (
               <Card
                 key={movie?.id}
