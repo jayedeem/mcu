@@ -5,6 +5,8 @@ import type { NextPage } from 'next';
 import React, { useCallback, useEffect, useState } from 'react';
 import styles from '@/styles/main.module.scss';
 import { NavBar } from '@/components/Navbar';
+import { MobileNav } from '@/components/MobileNav';
+
 interface IGet {
   data: MovieDetail[];
 }
@@ -19,8 +21,8 @@ const Home: NextPage = () => {
 
       setMovies(data.data);
       setIsLoading(false);
-    } catch (e) {
-      setError('error');
+    } catch (e: any) {
+      setError(e);
     }
   }, []);
   useEffect(() => {
@@ -30,16 +32,16 @@ const Home: NextPage = () => {
   return (
     <>
       <NavBar />
-
+      <MobileNav />
       <div className={styles.main_container}>
-        {!isLoading
+        {!isLoading && !error
           ? movies.map((movie) => {
-              return movie.title && movie.overview && movie.cover_url ? (
+              return movie?.title && movie.overview && movie?.cover_url ? (
                 <Card
-                  key={movie.id}
-                  title={movie.title}
-                  overview={movie.overview}
-                  img={movie.cover_url ? movie.cover_url : ''}
+                  key={movie?.id}
+                  title={movie?.title}
+                  overview={movie?.overview}
+                  img={movie?.cover_url ? movie?.cover_url : ''}
                 />
               ) : (
                 ''
