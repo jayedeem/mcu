@@ -5,9 +5,9 @@ import { MobileNavOverlay } from './MobileNavOverlay';
 import { IHandleSetPhase } from '@/utils/MoviePhases';
 
 export interface MobileNavOverlayProps {
-  onClick: IHandleSetPhase;
+  handleClick: IHandleSetPhase;
 }
-export const MobileNav: FC<MobileNavOverlayProps> = ({ onClick }) => {
+export const MobileNav: FC<MobileNavOverlayProps> = ({ handleClick }) => {
   const [isToggle, setIsToggle] = useState<boolean>(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const MobileNav: FC<MobileNavOverlayProps> = ({ onClick }) => {
   return (
     <div className={s.mobileNav}>
       <MobileNavControls toggleOverlay={toggleOverlay} isToggle={isToggle} />
-      <MobileNavOverlay onClick={onClick} isToggle={isToggle} />
+      <MobileNavOverlay handleClick={handleClick} isToggle={isToggle} />
     </div>
   );
 };

@@ -5,16 +5,16 @@ import { IHandleSetPhase } from '@/utils/MoviePhases';
 
 export interface MobileNavOverlayProps {
   isToggle: boolean;
-  onClick: IHandleSetPhase;
+  handleClick: IHandleSetPhase;
 }
 
-export const MobileNavOverlay: FC<MobileNavOverlayProps> = ({ onClick, isToggle }) => {
+export const MobileNavOverlay: FC<MobileNavOverlayProps> = ({ handleClick, isToggle }) => {
   return (
     <div className={isToggle ? s.mobileNav__overlay : s.mobileNav__overlayHidden}>
       <ul className={s.mobileNav__overlay_list}>
         {navLinks.map((navLink) => {
           return (
-            <li key={navLink.link} onClick={() => onClick(navLink.phase)}>
+            <li key={navLink.link} onClick={() => handleClick(navLink.phase)}>
               {navLink.link}
             </li>
           );

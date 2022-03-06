@@ -3,10 +3,10 @@ import styles from './navbar.module.scss';
 import { IHandleSetPhase } from '@/utils/MoviePhases';
 
 interface IProps {
-  onClick: IHandleSetPhase;
+  handleClick: IHandleSetPhase;
 }
 
-export const NavBar: React.FC<IProps> = ({ onClick }): JSX.Element => {
+export const NavBar: React.FC<IProps> = ({ handleClick }): JSX.Element => {
   return (
     <div className={styles.navbar__container}>
       <div className={styles.navbar__container_wrapper}>
@@ -18,7 +18,7 @@ export const NavBar: React.FC<IProps> = ({ onClick }): JSX.Element => {
             <ul>
               {navLinks.map((navLink) => {
                 return (
-                  <li key={navLink.link} onClick={() => onClick(navLink.phase)}>
+                  <li key={navLink.link} onClick={() => handleClick(navLink.phase)}>
                     {navLink.link}
                   </li>
                 );
