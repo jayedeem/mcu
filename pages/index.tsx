@@ -42,25 +42,23 @@ const Home: NextPage = () => {
 
   return (
     <>
-
       <NavBar handleClick={handleClick} />
       <MobileNav handleClick={handleClick} />
-
 
       <div className={styles.main_container}>
         {!isLoading && !error
           ? movies.filter(isCorrectMoviePhase).map((movie) => {
-            return movie?.title && movie.overview && movie?.cover_url ? (
-              <Card
-                key={movie?.id}
-                title={movie?.title}
-                overview={movie?.overview}
-                img={movie?.cover_url ? movie?.cover_url : ''}
-              />
-            ) : (
-              ''
-            );
-          })
+              return movie?.title && movie.overview && movie?.cover_url ? (
+                <Card
+                  key={movie?.id}
+                  title={movie?.title}
+                  overview={movie?.overview}
+                  img={movie?.cover_url ? movie?.cover_url : ''}
+                />
+              ) : (
+                ''
+              );
+            })
           : 'LOADING DATA'}
       </div>
     </>

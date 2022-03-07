@@ -26,7 +26,7 @@ export const MobileNav: FC<MobileNavOverlayProps> = ({ handleClick }) => {
   return (
     <div className={s.mobileNav}>
       <MobileNavControls toggleOverlay={toggleOverlay} isToggle={isToggle} />
-      <MobileNavOverlay handleClick={handleClick} isToggle={isToggle} />
+      <MobileNavOverlay toggleOverlay={toggleOverlay} handleClick={handleClick} isToggle={isToggle} />
     </div>
   );
 };
