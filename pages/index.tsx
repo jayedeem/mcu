@@ -42,8 +42,11 @@ const Home: NextPage = () => {
 
   return (
     <>
+
       <NavBar handleClick={handleClick} />
       <MobileNav handleClick={handleClick} />
+
+
       <div className={styles.main_container}>
         {!isLoading && !error
           ? movies.filter(isCorrectMoviePhase).map((movie) => {
