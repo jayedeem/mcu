@@ -1,5 +1,7 @@
 import { Card } from '@/components/Card';
 import { MovieDetail } from '@/utils/MovieDetails';
+import { moviePhaseTypes, moviePhaseValues } from '@/utils/MoviePhases';
+
 import axios from 'axios';
 import type { NextPage } from 'next';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -25,17 +27,27 @@ const Home: NextPage = () => {
       setError(e);
     }
   }, []);
+
+  const [phase, setPhase] = useState<moviePhaseTypes>(moviePhaseValues.showAll);
+  function isCorrectMoviePhase(movie: MovieDetail): boolean {
+    if (phase === moviePhaseValues.showAll) return true;
+    return movie?.phase === phase;
+  }
+  function handleClick(phase: moviePhaseTypes) {
+    setPhase(phase);
+  }
   useEffect(() => {
     fetchAPI();
   }, [fetchAPI]);
 
   return (
     <>
-      <NavBar />
-      <MobileNav />
+      <NavBar handleClick={handleClick} />
+      <MobileNav handleClick={handleClick} />
+
       <div className={styles.main_container}>
         {!isLoading && !error
-          ? movies.map((movie) => {
+          ? movies.filter(isCorrectMoviePhase).map((movie) => {
               return movie?.title && movie.overview && movie?.cover_url ? (
                 <Card
                   key={movie?.id}

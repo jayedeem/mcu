@@ -1,9 +1,13 @@
 import { FC, useState, useEffect } from 'react';
 import s from './mobilenav.module.scss';
 import { MobileNavControls } from './MobileNavControls';
-import { MobilenavOverlay } from './MobileNavOverlay';
+import { MobileNavOverlay } from './MobileNavOverlay';
+import { IHandleSetPhase } from '@/utils/MoviePhases';
 
-export const MobileNav: FC = () => {
+export interface MobileNavOverlayProps {
+  handleClick: IHandleSetPhase;
+}
+export const MobileNav: FC<MobileNavOverlayProps> = ({ handleClick }) => {
   const [isToggle, setIsToggle] = useState<boolean>(false);
 
   useEffect(() => {
@@ -22,7 +26,7 @@ export const MobileNav: FC = () => {
   return (
     <div className={s.mobileNav}>
       <MobileNavControls toggleOverlay={toggleOverlay} isToggle={isToggle} />
-      <MobilenavOverlay isToggle={isToggle} />
+      <MobileNavOverlay toggleOverlay={toggleOverlay} handleClick={handleClick} isToggle={isToggle} />
     </div>
   );
 };

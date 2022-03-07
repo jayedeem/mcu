@@ -1,8 +1,12 @@
-import { NextComponentType } from 'next';
 import { navLinks } from '../MobileNav/navlink';
 import styles from './navbar.module.scss';
+import { IHandleSetPhase } from '@/utils/MoviePhases';
 
-export const NavBar: NextComponentType = (): JSX.Element => {
+interface IProps {
+  handleClick: IHandleSetPhase;
+}
+
+export const NavBar: React.FC<IProps> = ({ handleClick }): JSX.Element => {
   return (
     <div className={styles.navbar__container}>
       <div className={styles.navbar__container_wrapper}>
@@ -13,7 +17,11 @@ export const NavBar: NextComponentType = (): JSX.Element => {
           <div className={styles.navbar__container_menu_items}>
             <ul>
               {navLinks.map((navLink) => {
-                return <li key={navLink.link}>{navLink.link}</li>;
+                return (
+                  <li key={navLink.link} onClick={() => handleClick(navLink.phase)}>
+                    {navLink.link}
+                  </li>
+                );
               })}
             </ul>
           </div>
